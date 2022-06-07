@@ -1,6 +1,6 @@
-f = @(x) (x<.1)*4+(0.2<x & x<0.3)*-1;
-r = 1;
-n = 40;
+f = @(x) 1.97-x;
+r = 2;
+n = 20;
 
 [sol, lspace] = upogib_opne(f, r, n);
 %plot(lspace, sol);
@@ -9,6 +9,7 @@ for i = 1:n
     t(i) = -lspace(n+1-i);
     t(i+n-1)=lspace(i);
 end
+
 [x, y] = meshgrid(t, t);
 z = zeros(2*n-1, 2*n-1);
 for px=1:2*n-1
@@ -21,6 +22,7 @@ for px=1:2*n-1
 end
 plot = surf(x, y, z);
 %set(plot,'LineStyle','none')
+sol(1)
 
 
 
